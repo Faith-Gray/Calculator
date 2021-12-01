@@ -1,0 +1,88 @@
+* {
+    background-color: #00204a;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+.container {
+    border: 2px solid #fdb44b;
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+      "header header header header"
+      "main main main plus"
+      "main main main minus"
+      "main main main mult"
+      "equal C back div";
+
+
+  
+}
+
+
+.result {
+    grid-area: header;
+    background-color: #00bbf0;
+    width: 99%;
+    height: 95%;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #fdb44b;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.add {
+    grid-area: plus;
+}
+
+.minus {
+    grid-area: minus;
+}
+
+.multiply {
+    grid-area: mult;
+}
+
+.divide {
+    grid-area: div;
+}
+
+.equal {
+    grid-area: equal;
+}
+
+button {
+    background-color: #00bbf0;
+    font-size: 33px;
+    font-weight: bolder;
+    border: 2px solid #005792;
+    border-radius: 4px;
+    justify-self: center;
+    align-self: center;
+    width: 5.2rem;   
+    height: 6rem; 
+    transition: all .15s ease-in-out;
+    
+}
+
+button:hover {
+    border: 2px solid #fdb44b;
+
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.84);
+}
