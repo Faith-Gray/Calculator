@@ -29,43 +29,43 @@ function operate(operator, num1, num2,) {
         
 }
 
+
 //check operator
-operate('*', 4, 2);
+//operate('*', 4, 2);
 
 let result = document.getElementsByClassName("result"); 
 let clear = document.getElementsByClassName("clear");
-let sum = document.getElementsByClassName("add");
+let operator = document.getElementsByClassName("operators");
 
 btns = document.getElementsByClassName("numbers");
 
-
 for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function (e) {
-        let x = e.target.textContent;
-
-        //check x
-        console.log(x);         
+        let x = e.target.textContent;         
         result[0].textContent += x;
-        
-
-        for (var i = 0; i < clear.length; i++) {
-            clear[i].addEventListener("click", function (e) {
-                result[0].textContent = ''; 
-            });
+        if (num1 = "undefined") {
+            num1 = result[0].textContent; 
+        } else { 
+            num2 = result[0].textContent;
         }
-
-        for (var i = 0; i < clear.length; i++) {
-            sum[i].addEventListener("click", function (e) {
-                num1 = result[0].textContent; 
-                let sum = e.target.textContent;
-                let operator = sum;
-                
-            });
-        }
-        
     });    
-
 }
+for (var i = 0; i < clear.length; i++) {
+    clear[i].addEventListener("click", function (e) {
+        result[0].textContent = ''; 
+    });
+}
+for (var i = 0; i < operator.length; i++) {
+    operator[i].addEventListener("click", function (e) {
+       // num1 = result[0].textContent; 
+        operator = e.target.textContent;
+        console.log(num1);
+        console.log(operator);
+        result[0].textContent = '';
+        //num 2 not populating
+        
+        console.log(num2);
 
-
+    });
+}
 

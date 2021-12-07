@@ -43,23 +43,23 @@
     align-items: center;
 }
 
-.add {
+#add {
     grid-area: plus;
 }
 
-.minus {
+#minus {
     grid-area: minus;
 }
 
-.multiply {
+#multiply {
     grid-area: mult;
 }
 
-.divide {
+#divide {
     grid-area: div;
 }
 
-.equal {
+#equal {
     grid-area: equal;
 }
 
