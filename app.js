@@ -19,7 +19,7 @@ function div(num1, num2){
     return num1 / num2;
 }
 
-function operate(operation, num1, num2) {
+function operate() {
     if (operation == '+') {
        // console.log(add(num1, num2));
         answer = add(num1, num2);
@@ -27,18 +27,24 @@ function operate(operation, num1, num2) {
         num2 = null;
         operation = null;
         result[0].textContent = num1;
-        console.log(num1);
-        console.log(num2);
-        return num2 && operation;
     } else if (operation == '-') {
-        console.log(sub(num1, num2));
-        result[0].textContent = sub(num1, num2);
+        answer = sub(num1, num2);
+        num1 = answer;
+        num2 = null;
+        operation = null;
+        result[0].textContent = num1; 
     } else if (operation == '*') {
-        console.log(mult(num1, num2));
-        result[0].textContent = mult(num1, num2);
+        answer = mult(num1, num2);
+        num1 = answer;
+        num2 = null;
+        operation = null;
+        result[0].textContent = num1; 
     } else if (operation == '/') {
-        console.log(div(num1, num2));
-        result[0].textContent = div(num1, num2);
+        answer = div(num1, num2);
+        num1 = answer;
+        num2 = null;
+        operation = null;
+        result[0].textContent = num1; 
     } else {
         console.log("Please enter a valid operator")};
         
@@ -51,43 +57,45 @@ let equal = document.getElementsByClassName("equal");
 
 btns = document.getElementsByClassName("numbers");
 
-for (var i = 0; i < btns.length; i++) {
+for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function (e) {
         let x = e.target.textContent;         
         result[0].textContent += x;
-        if (operation === undefined) {
+        if (!operation) {
             num1 = parseInt(result[0].textContent); 
         } else { 
             num2 = parseInt(result[0].textContent);
         }
     });   
 }
-for (var i = 0; i < clear.length; i++) {
+for (let i = 0; i < clear.length; i++) {
     clear[i].addEventListener("click", function (e) {
         result[0].textContent = ''; 
-        num1 = undefined;
-        operation = undefined;
-        num2 = undefined;
+        num1 = null;
+        operation = null;
+        num2 = null;
     });
 }
-for (var i = 0; i < operator.length; i++) {
+for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener("click", function (e) {
-       // num1 = result[0].textContent;
        if (!num2) {
             operation = e.target.textContent;
             console.log(num1);
             console.log(operation);
             result[0].textContent = '';
+            console.log(num2);
        } else {
            operate(operation, num1, num2);
-           console.log("operationg");
+           console.log(num2);
+           operation = e.target.textContent;
+           console.log(num1);
+           console.log(operation);
+           result[0].textContent = '';
+           console.log(num2);
        }
-        console.log(num2);
-        //num 2 not populating
-        //operate(operation, num1, num2);
     });
 }
-for (var i = 0; i < equal.length; i++) {
+for (let i = 0; i < equal.length; i++) {
     equal[i].addEventListener("click", function (e){ 
         operate(operation, num1, num2);
     });
